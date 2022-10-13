@@ -1,2 +1,3 @@
-** BIG BOLD TEXT **
-Smile.jpg
+# GBHS Coding Club Website
+
+Everybody wins!
