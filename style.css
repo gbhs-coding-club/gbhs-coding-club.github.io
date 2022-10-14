@@ -1,11 +1,2 @@
 
-#nav {
-  display: flex;
-  justify-content: space-between;
-}
-#nav-options {
-  display: flex;
-  justify-content: space-between;
-
-  flex-grow: 2;
-}
+/* Styles here still get used */

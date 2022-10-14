@@ -1,0 +1,57 @@
+
+// I don't know what style the 
+// website should be so I figured
+// why not make everything a variable!
+
+// also https://lesscss.org/
+
+@font-family: "Ubuntu", sans-serif;
+
+@colors: {
+  main     : #EEE;
+  secondary: #DDD;
+}
+
+@padding: 20px;
+
+html, body {
+  width: 100%;
+  height: 100%;
+
+  margin: 0px;
+  padding: 0px;
+
+  font-family: @font-family;
+}
+
+#nav {
+  background-color: @colors[main];
+
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+#nav-title {
+  padding: @padding;
+}
+#nav-options {
+  display: flex;
+  justify-content: space-between;
+
+  padding: @padding;
+
+  .nav-option{
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+
+#nav-space {
+  height: 50px;
+}
