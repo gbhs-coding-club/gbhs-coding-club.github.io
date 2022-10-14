@@ -6,4 +6,6 @@
 #nav-options {
   display: flex;
   justify-content: space-between;
+
+  flex-grow: 2;
 }
