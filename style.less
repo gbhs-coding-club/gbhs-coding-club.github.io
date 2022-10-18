@@ -12,6 +12,8 @@
   secondary: #DDD;
 }
 
+@border-width: 1px;
+
 @padding: 20px;
 
 html, body {
@@ -35,6 +37,8 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-content: center;
+
+  border-bottom: solid @border-width @colors[secondary];
 }
 #nav-title {
   padding: @padding;
@@ -53,5 +57,9 @@ html, body {
 }
 
 #nav-space {
-  height: 50px;
+  // height: 50px;
+}
+
+#page {
+  padding: @padding;
 }
