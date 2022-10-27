@@ -1,1 +1,0 @@
-<input type="text" onblur="document.body.style.backgroundColor = this.value;" id="color">
