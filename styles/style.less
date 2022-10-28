@@ -8,13 +8,16 @@
 @font-family: "Ubuntu", sans-serif;
 
 @colors: {
-  main     : #EEE;
-  secondary: #DDD;
+  main     : #FFF;
+  secondary: #EEE;
 }
 
-@border-width: 1px;
+@border: {
+  width: 1px;
+  radius: 4px;
+}
 
-@padding: 20px;
+@padding: 15px;
 
 html, body {
   width: 100%;
@@ -40,8 +43,8 @@ html, body {
     justify-content: space-between;
     align-content: center;
   
-    border: solid @border-width @colors[secondary];
-    border-radius: 4px;
+    border: solid @border[width] @colors[secondary];
+    border-radius: @border[radius];
   
     overflow: hidden;
     
@@ -57,6 +60,8 @@ html, body {
     
     #nav-title {
       padding: @padding;
+
+      border-right: solid @border[width] @colors[secondary];
     }
     #nav-options {
       display: flex;
