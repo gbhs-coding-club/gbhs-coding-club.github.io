@@ -25,35 +25,52 @@ html, body {
 
   font-family: @font-family;
 }
-
-#nav {
-  background-color: @colors[main];
-
+#nav-holder {
   position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
+
+  padding: 10px;
   
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-
-  border-bottom: solid @border-width @colors[secondary];
-}
-#nav-title {
-  padding: @padding;
-}
-#nav-options {
-  display: flex;
-  justify-content: space-between;
-
-  padding: @padding;
-
-  .nav-option{
-    cursor: default;
+  #nav {
+    background-color: @colors[main];
     
-    &:not(:last-child) {
-      margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  
+    border: solid @border-width @colors[secondary];
+    border-radius: 4px;
+  
+    overflow: hidden;
+    
+    #nav-background {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      
+      filter: blur(1rem);
+  
+      pointer-events: none;
+    }
+    
+    #nav-title {
+      padding: @padding;
+    }
+    #nav-options {
+      display: flex;
+      justify-content: space-between;
+    
+      padding: @padding;
+    
+      .nav-option{
+        cursor: default;
+        
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
     }
   }
 }

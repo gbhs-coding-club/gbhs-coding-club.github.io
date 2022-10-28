@@ -24,6 +24,9 @@ for (name in names) {
     let link = `<p><a href="/people/${name}/">${names[name]}</h4></p>` 
     document.getElementById("page").innerHTML += link
 }
+// note: innerHTML removes any previous scripting 
+// to the page because it reruns the DOM parser
+
 
 // Alrighty
 // This code (is supposed to) make 
