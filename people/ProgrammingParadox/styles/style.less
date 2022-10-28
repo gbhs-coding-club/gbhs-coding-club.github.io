@@ -52,10 +52,16 @@ body {
   }
 }
 
-.line::before {
-  content: "$";
-
-  margin-right: 10px;
+.line {
+  &.prepend {
+    margin-left: 0px;
+    
+    &::before {
+      content: "$";
+  
+      margin-right: 10px;
+    }
+  }
 }
 
 #typing {
