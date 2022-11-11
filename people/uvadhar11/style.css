@@ -2,12 +2,17 @@ html,
 body {
   height: 100%;
   width: 100%;
-}
-
-.name {
   padding-top: 5%;
   display: flex;
   justify-content: center;
   font-family: sans-serif;
+}
+
+.name {
   font-size: large;
+}
+
+.occupation {
+  color: antiquewhite;
+  font-size: medium;
 }
