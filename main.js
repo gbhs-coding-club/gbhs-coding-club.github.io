@@ -18,7 +18,8 @@ names = {
     "raptor8134" : "James",
     "uvadhar11" : "Umang",
     "ProgrammingParadox" : "Josh",
-    "Kristopher-Iliev" : "Kristopher"
+    "Kristopher-Iliev" : "Kristopher",
+    "hedgeschol" : "Andrew"
 }
 for (name in names) {
     let link = `<p><a href="/people/${name}/">${names[name]}</h4></p>` 
