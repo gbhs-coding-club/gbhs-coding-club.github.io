@@ -15,4 +15,6 @@ body {
 .occupation {
   color: antiquewhite;
   font-size: medium;
+  display: flex;
+  justify-content: center;
 }
