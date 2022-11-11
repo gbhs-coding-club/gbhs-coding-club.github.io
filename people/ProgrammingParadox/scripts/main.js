@@ -27,6 +27,7 @@ Lexer.prototype.eatWhitespace = function(){
 Lexer.prototype.eat = function(){
   let token = {
     value: "",
+    type: "",
   };
 
   let cur = this.text[this.index];
@@ -34,17 +35,24 @@ Lexer.prototype.eat = function(){
   while((cur = this.text.charAt(this.index)).match(/[^\s\n]/)){
     token.value += this.text.charAt(this.index);
 
-    console.log(this.index, token.value);
-    
     this.index ++;
+    
+    let v = token.value;
+    let p = v + this.peek();
+    
+    if(["++", "--"].indexOf(v) !== -1){ token.type = "operator"; break; }
+
+    if(v.match(/^([0-9]+)$/) && !p.match(/^([0-9]+)$/)){ token.type = "number"; break; }
   }
+
+  console.log(token);
 
   this.eatWhitespace();
 
   return token;
 };
 
-let l = new Lexer("this is a test123 ++ -- + - +-");
+let l = new Lexer("this is a 123 test123 ++ -- + - +-");
 console.log(l.eat());
 console.log(l.eat());
 console.log(l.eat());
