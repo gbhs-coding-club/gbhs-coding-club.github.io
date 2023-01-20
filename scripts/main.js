@@ -1,4 +1,4 @@
-
+import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
 
 // why doesn't it work with window.onload 
 // or .addEventListener("load", function(){})"?
@@ -14,7 +14,7 @@ window.setInterval(function() {
 }, 0);
 
 // Hacky solution for personal page links, style later
-names = { 
+let names = { 
     "raptor8134" : "James",
     "uvadhar11" : "Umang",
     "ProgrammingParadox" : "Josh",
@@ -29,7 +29,7 @@ for (name in names) {
   let linkElement = document.createElement("a");
   linkElement.setAttribute("href", "/people/" + name);
   linkElement.textContent = names[name];
-  linkElement.classList.add("title");
+  linkElement.classList.add("name-title");
 
   nameElement.appendChild(linkElement);
     
@@ -38,6 +38,7 @@ for (name in names) {
 // note: innerHTML removes any previous scripting 
 // to the page because it reruns the DOM parser
 
+console.log(Octokit);
 
 // Alrighty
 // This code (is supposed to) make 
