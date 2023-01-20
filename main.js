@@ -21,9 +21,19 @@ names = {
     "Kristopher-Iliev" : "Kristopher",
     "hedgeschol" : "Andrew"
 }
+let namesElement = document.getElementById("names");
 for (name in names) {
-    let link = `<p><a href="/people/${name}/">${names[name]}</h4></p>` 
-    document.getElementById("page").innerHTML += link
+  let nameElement = document.createElement("div");
+  nameElement.classList.add("name");
+
+  let linkElement = document.createElement("a");
+  linkElement.setAttribute("href", "/people/" + name);
+  linkElement.textContent = names[name];
+  linkElement.classList.add("title");
+
+  nameElement.appendChild(linkElement);
+    
+  namesElement.appendChild(nameElement);
 }
 // note: innerHTML removes any previous scripting 
 // to the page because it reruns the DOM parser
