@@ -90,7 +90,47 @@ html, body {
 
 #names {
   .name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     
+    border: solid @border[width] @colors[secondary];
+    border-radius: @border[radius];
+
+    padding: @padding;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    .name-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      * {
+        margin-left: @padding;
+      }
+      
+      .name-link {
+        color: #000;
+        text-decoration: none;
+  
+        font-weight: 500;
+      }
+
+      .name-username {
+        color: #AAA;
+
+        font-weight: 100;
+      }
+    }
+
+    .name-image {
+      border: solid @border[width] @colors[secondary];
+      
+      border-radius: 50%;
+    }
   }
 }
 
