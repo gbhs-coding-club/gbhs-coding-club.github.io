@@ -31,19 +31,49 @@ let names = {
     "Kristopher-Iliev" : "Kristopher",
     "hedgeschol" : "Andrew"
 }
-let namesElement = document.getElementById("names");
-for (name in names) {
-  let nameElement = document.createElement("div");
-  nameElement.classList.add("name");
 
-  let linkElement = document.createElement("a");
-  linkElement.setAttribute("href", "/people/" + name);
-  linkElement.textContent = names[name];
-  linkElement.classList.add("name-title");
+Promise.all(Object.keys(names).map(a => fetch(`https://api.github.com/users/${a}`)))
+  .then((profiles) => {
+    return Promise.all(profiles.map(a => a.json()))
+  })
+  .then((data) => {
+    let namesElement = document.getElementById("names");
 
-  nameElement.appendChild(linkElement);
+    // maybe turn into a forEach? This is a little
+    // hard to read...
+    for (
+      let i = 0, 
+        entries = Object.entries(names), 
+        person = entries[0]; 
+      
+      i<entries.length;
+      i++, person=entries[i]
+    ) {
+      // main parent element
+      let nameElement = document.createElement("div");
+      nameElement.classList.add("name");
+
+      // Link to their page
+      let linkElement = document.createElement("a");
+      linkElement.setAttribute("href", "/people/" + person[0]);
+      linkElement.textContent = person[1];
+      linkElement.classList.add("name-title");
     
-  namesElement.appendChild(nameElement);
-}
+      nameElement.appendChild(linkElement);
 
+      // Github profile picture
+      let imageElement = document.createElement("img");
+      imageElement.classList.add("name-image");
+      // imageElement.setAttribute("src");
+        
+      namesElement.appendChild(nameElement);
+    }
+  })
+  .catch((err) => console.error("There was a problem: " + err));
+
+// Initialize the nav bar
 Nav(document.getElementById("nav-options"));
+
+fetch("https://api.github.com/users/ProgrammingParadox")
+  .then((data) => data.json())
+  .then((data) => console.log(data));

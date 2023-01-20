@@ -7,6 +7,8 @@ export let Nav = (function(){
       this.options = options;
     }
 
+    // so if you do [... navObject] the array
+    // will be full of the options
     *[Symbol.iterator]() {
       for(let i = 0; i<this.options.length; i++){
         yield this.options[i];
