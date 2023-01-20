@@ -1,4 +1,14 @@
-import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+
+// If you don't know what import does
+// you can just happily scroll along.
+// If you're curious, import allows the
+// usage of stuff from other JavaScript
+// files. Fun!
+
+// This first import is importing something
+// named "Nav" from "./nav.js". It's used
+// to make the links on the navbar clickable.
+import { Nav } from "./nav.js";
 
 // why doesn't it work with window.onload 
 // or .addEventListener("load", function(){})"?
@@ -35,24 +45,5 @@ for (name in names) {
     
   namesElement.appendChild(nameElement);
 }
-// note: innerHTML removes any previous scripting 
-// to the page because it reruns the DOM parser
 
-console.log(Octokit);
-
-// Alrighty
-// This code (is supposed to) make 
-// those links clickable. :)
-const navOptions = document.getElementById("nav-options").children;
-for(let i = 0; i<navOptions.length; i++){
-  let cur = navOptions[i];
-
-  let link = cur.getAttribute("data-link");
-  if(!link) continue;
-
-  cur.addEventListener("click", function(e){
-    e.preventDefault();
-    
-    window.location.href = link;
-  });
-}
+Nav(document.getElementById("nav-options"));
