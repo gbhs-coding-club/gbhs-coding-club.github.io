@@ -34,6 +34,9 @@ export function loadPeople(element) {
         // main parent element
         let nameElement = document.createElement("div");
         nameElement.classList.add("name");
+
+        let leftElement = document.createElement("div");
+        leftElement.classList.add("name-left");
   
         // Github profile picture
         let imageElement = document.createElement("img");
@@ -43,6 +46,9 @@ export function loadPeople(element) {
         imageElement.setAttribute("height", "50");
   
         nameElement.appendChild(imageElement);
+
+        let stuffElement = document.createElement("div");
+        stuffElement.classList.add("name-stuff");
   
         // stat holder element
         let statElement = document.createElement("div");
@@ -63,8 +69,40 @@ export function loadPeople(element) {
   
         statElement.appendChild(usernameElement);
   
-        nameElement.appendChild(statElement);
+        leftElement.appendChild(statElement);
+
+        stuffElement.appendChild(leftElement);
+
+        // right element
+        let rightElement = document.createElement("div");
+        rightElement.classList.add("name-right");
+
+        // icons
+        let iconElement = document.createElement("div");
+        iconElement.classList.add("name-icons");
+
+        // github
+        if(profile.message != "Not Found") {
+          let githubIcon = document.createElement("a");
+          githubIcon.classList.add("name-icon-github");
+          githubIcon.setAttribute("href", profile.html_url);
+
+          let githubIconSVG = document.createElement("i");
+          githubIconSVG.setAttribute("data-feather", "github");
+
+          githubIcon.appendChild(githubIconSVG);
+          
+          iconElement.appendChild(githubIcon);
+        }
+        
+        rightElement.appendChild(iconElement);
+
+        stuffElement.appendChild(rightElement);
+
+        nameElement.appendChild(stuffElement);
         namesElement.appendChild(nameElement);
+
+        feather.replace({ "class": "icon", "stroke": "#000", "stroke-width": "1.5" });
       }
     })
     .catch((err) => console.error("There was a problem loading the people " + err));
