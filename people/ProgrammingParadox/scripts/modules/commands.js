@@ -4,6 +4,8 @@ import { line } from "./line.js";
 import { help } from "./commands/help.js";
 import { page } from "./commands/page.js";
 
+import { definition, Tree } from "./definition.js";
+
 let pages = {
   "home": "home.html",  
 };

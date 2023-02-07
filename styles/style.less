@@ -80,6 +80,33 @@ html, body {
   }
 }
 
+#center {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 50vh;
+  
+  #center-text {
+    font-size: 5em;
+  }
+
+  #center-svg {
+    // background-color: #EEE;
+    
+    z-index: -1;
+
+    width: 100vw;
+    height: 60vh;
+    
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+  }
+}
+
 #nav-space {
   // height: 50px;
 }
@@ -149,18 +176,5 @@ html, body {
       
       border-radius: 50%;
     }
-  }
-}
-
-#center {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  height: 50vh;
-  
-  #center-text {
-    font-size: 5em;
   }
 }

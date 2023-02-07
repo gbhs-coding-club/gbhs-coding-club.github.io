@@ -1,6 +1,8 @@
 
 import { Token } from './Token.js';
 
+// note: no single tick strings
+
 let Lexer = function(string){
   this.text = string;
   this.index = 0;
@@ -52,7 +54,7 @@ Lexer.prototype.check = function(type, cur){
     // "comment": cur => cur.match(/^\/\*(.|\n)*?\*\/$/),
     // "identifier": cur => cur.match(/^[a-zA-Z_0-9]/),
     // "eof"     : cur => cur === ""
-    "symbol"  : cur => cur.match(/^[\[\]\(\)\{\}\;\,\.\:]$/), 
+    "symbol"  : cur => cur.match(/^[\[\]\(\)\{\}\;\,\.\:\$\'\#]$/), 
   }[type](cur);
 };
 Lexer.prototype.eat = function(){

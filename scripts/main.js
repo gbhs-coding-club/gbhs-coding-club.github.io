@@ -14,6 +14,9 @@ import { Nav } from "./nav.js";
 // profiles and stuff onto the home page.
 import { loadPeople } from "./people.js";
 
+// this is some code being imported in. Yup.
+import { graphic } from "./graphics.js";
+
 // why doesn't it work with window.onload 
 // or .addEventListener("load", function(){})"?
 
@@ -35,6 +38,10 @@ loadPeople(document.getElementById("names"));
 // Initialize the nav bar
 Nav(document.getElementById("nav-options"));
 
+// graphic
+// window.onload = function(){ console.log("hi"); graphic(); };
+
 fetch("https://api.github.com/users/ProgrammingParadox")
   .then((data) => data.json())
   .then((data) => console.log(data));
+
