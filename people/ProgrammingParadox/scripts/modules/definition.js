@@ -76,6 +76,6 @@ let help = definition("help")
     .default((def) => { console.log("It's been called in some other way"); })
   );
 
-console.log("rjkgh");
+console.log( help.nodes );
 
 export { definition, Tree };

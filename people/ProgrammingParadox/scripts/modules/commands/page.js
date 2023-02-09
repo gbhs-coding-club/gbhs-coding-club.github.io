@@ -31,6 +31,8 @@ export function page(arg){
       page "${arg.value}"
     </div>`
     , false, false);
+
+    return;
   }
 
   let pageList = Object.keys(pages);

@@ -71,6 +71,7 @@ Tree.prototype.node = function(pattern, fn, tree) {
 
     let want = {
       type: typeLookup[type.value],
+      name: name.value,
       value: undefined,
     };
 
@@ -141,7 +142,9 @@ Tree.prototype.node = function(pattern, fn, tree) {
 
   return this;
 };
-Tree.prototype.default = function() {
+Tree.prototype.default = function(fn) {
+  this.default = fn;
+  
   return this;
 };
 
